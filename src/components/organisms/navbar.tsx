@@ -1,9 +1,7 @@
 import Link from 'next/link';
-
-import {NavLink} from '@/components/atoms/nav-link';
-import {ThemeToggle} from '@/components/molecules/theme-toggler';
-
-import {NavbarMobileBtn} from './navbar-mobile';
+import { NavLink } from '@/components/atoms/nav-link';
+import { ThemeToggle } from '@/components/molecules/theme-toggler';
+import { NavbarMobileBtn } from './navbar-mobile';
 
 export const Navbar = () => {
   return (
@@ -16,12 +14,11 @@ export const Navbar = () => {
       </Link>
       <div className="md:col-span-9 lg:col-span-10 flex items-center justify-between">
         <ul className="md:flex items-center divide-x w-max border-r hidden shrink-0">
-          {navMenu.map((menu, i) => (
-            <NavLink key={i} href={menu.path}>
+          {navMenu.map((menu) => (
+            <NavLink key={menu.name} href={menu.path}>
               {menu.name}
             </NavLink>
           ))}
-          <NavLink href="/cv.pdf">_my-cv</NavLink>
         </ul>
         <ThemeToggle />
         <NavbarMobileBtn />
@@ -44,15 +41,11 @@ export const navMenu = [
     path: '/projects',
   },
   {
-    name: '_guest-book',
-    path: '/guest-book',
-  },
-  {
-    name: '_articles',
-    path: '/articles',
-  },
-  {
     name: '_demo',
     path: '/demo',
+  },
+  {
+    name: '_my-cv',
+    path: '/cv',
   },
 ];

@@ -1,34 +1,31 @@
 import './globals.css';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import type { Metadata } from 'next';
 import Script from 'next/script';
-import {Metadata} from 'next';
-import {GeistSans} from 'geist/font/sans';
-import {GeistMono} from 'geist/font/mono';
-
-import {Navbar} from '@/components/organisms/navbar';
-import {Footer} from '@/components/organisms/footer';
-import {ThemeWrapper} from '@/components/atoms/theme-wrapper';
-import {ResponsiveIndicator} from '@/components/atoms/responsive-indicator';
+import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
+import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
+import { Footer } from '@/components/organisms/footer';
+import { Navbar } from '@/components/organisms/navbar';
 import {
   NavbarMobile,
   NavbarProvider,
 } from '@/components/organisms/navbar-mobile';
 
-import {ENV} from '@/lib/constants';
+import { ENV } from '@/lib/constants';
 
 export const metadata: Metadata = {
   metadataBase: new URL(ENV.NEXT_PUBLIC_WEBSITE_URL),
   title: {
-    default: 'Kan',
-    template: '%s | Kan',
+    default: 'Stephen',
+    template: '%s | Stephen',
   },
-  description:
-    "Get to know me, Kan, through this website! I'm a passionate full-stack developer and I've poured my skills and creativity into building this site with Next.js and Tailwind CSS. Explore my interactive projects, clean portfolio, and a glimpse into my technical expertise. If you're seeking a talented developer for your next project or simply looking for inspiration, feel free to get in touch!",
+  description: 'Get to know me, Stephen, through this website',
   openGraph: {
-    title: 'Kan',
-    description:
-      "Get to know me, Kan, through this website! I'm a passionate full-stack developer and I've poured my skills and creativity into building this site with Next.js and Tailwind CSS. Explore my interactive projects, clean portfolio, and a glimpse into my technical expertise. If you're seeking a talented developer for your next project or simply looking for inspiration, feel free to get in touch!",
+    title: 'Stephen',
+    description: 'Get to know me, Stephen, through this website!',
     url: ENV.NEXT_PUBLIC_WEBSITE_URL,
-    siteName: 'Kan',
+    siteName: 'Stephen',
     locale: 'en_US',
     type: 'website',
   },
@@ -44,7 +41,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Kan',
+    title: 'Stephen',
     card: 'summary_large_image',
   },
   verification: {
@@ -52,7 +49,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} font-mono`}>
@@ -71,13 +72,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <Footer />
           </main>
         </ThemeWrapper>
-        {process.env.NODE_ENV === 'production' && (
-          <Script
-            async
-            src="https://umami.leeminkan.dev/script.js"
-            data-website-id="163bc605-59b0-4b2e-9925-c91902fd7863"
-          />
-        )}
         <ResponsiveIndicator />
       </body>
     </html>

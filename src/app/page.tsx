@@ -1,6 +1,6 @@
-import {FadeIn} from '@/components/atoms/fade-in';
-import {GridPattern} from '@/components/atoms/grid-pattern';
-import {AnimatedName} from '@/components/molecules/animated-name';
+import { FadeIn } from '@/components/atoms/fade-in';
+import { GridPattern } from '@/components/atoms/grid-pattern';
+import { AnimatedName } from '@/components/molecules/animated-name';
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
             <AnimatedName />
             <h2 className="text-muted-foreground md:text-2xl sm:text-xl text-base">
               <span className="animate-pulse">&gt; </span>
-              Full-stack developer
+              Full-Stack Developer
             </h2>
 
             <div className="absolute w-full h-1/2 bg-muted-foreground/10 blur-2xl top-0 left-0 -z-10 rounded-full animate-pulse" />
@@ -31,6 +31,7 @@ export default function Home() {
                 target="_blank"
                 href="https://github.com/huydq189"
                 className="text-light-brown hover:underline hover:text-foreground transition-colors"
+                rel="noopener"
               >
                 &apos;https://github.com/huydq189&apos;
               </a>

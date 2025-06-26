@@ -1,15 +1,14 @@
+import type { ClassValue } from 'clsx';
 import Image from 'next/image';
-import {ClassValue} from 'clsx';
 
-import {FadeIn} from '@/components/atoms/fade-in';
-import {cn} from '@/lib/utils';
+import { FadeIn } from '@/components/atoms/fade-in';
+import { cn } from '@/lib/utils';
 
-const components = {
+const _components = {
   Image,
 };
 
 export function MDXComponent({
-  code,
   className,
   transparentBg = true,
 }: {

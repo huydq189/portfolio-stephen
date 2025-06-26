@@ -1,14 +1,14 @@
 'use client';
 import Link from 'next/link';
-import {useSelectedLayoutSegment} from 'next/navigation';
-import {cn} from '@/lib/utils';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 type Props = {
   href: string;
   children: React.ReactNode;
 };
 
-export const NavLink = ({href, children}: Props) => {
+export const NavLink = ({ href, children }: Props) => {
   const segment = useSelectedLayoutSegment();
   const isActive =
     segment === href.slice(1) || (segment === null && href === '/');

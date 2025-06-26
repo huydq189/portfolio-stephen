@@ -1,7 +1,7 @@
 'use client';
 
-import {useEffect, useId, useRef, useState} from 'react';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useEffect, useId, useRef, useState } from 'react';
 
 const Block = ({
   x,
@@ -20,7 +20,7 @@ const Block = ({
   );
 };
 
-export const GridPattern = ({yOffset = 0, interactive = false, ...props}) => {
+export const GridPattern = ({ yOffset = 0, interactive = false, ...props }) => {
   const id = useId();
   const ref = useRef<React.ComponentRef<'svg'>>(null);
   const currentBlock = useRef<[x: number, y: number]>(null);
@@ -66,11 +66,11 @@ export const GridPattern = ({yOffset = 0, interactive = false, ...props}) => {
 
       currentBlock.current = [x, y];
 
-      setHoveredBlocks(blocks => {
+      setHoveredBlocks((blocks) => {
         const key = counter.current++;
         const block = [x, y, key] as (typeof hoveredBlocks)[number];
         return [...blocks, block].filter(
-          block => !(block[0] === x && block[1] === y && block[2] !== key),
+          (block) => !(block[0] === x && block[1] === y && block[2] !== key),
         );
       });
     }
@@ -87,24 +87,27 @@ export const GridPattern = ({yOffset = 0, interactive = false, ...props}) => {
       ref={ref}
       aria-hidden="true"
       {...props}
-      exit={{opacity: 0}}
-      animate={{opacity: 1}}
-      initial={{opacity: 0}}
+      exit={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
     >
       <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
       <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
-        {staticBlocks.map(block => (
+        <title>Grid pattern visualization</title>
+        {staticBlocks.map((block) => (
           <Block key={`${block}`} x={block[0]} y={block[1]} />
         ))}
-        {hoveredBlocks.map(block => (
+        {hoveredBlocks.map((block) => (
           <Block
             key={block[2]}
             x={block[0]}
             y={block[1]}
-            animate={{opacity: [0, 1, 0]}}
-            transition={{duration: 1, times: [0, 0, 1]}}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 1, times: [0, 0, 1] }}
             onAnimationComplete={() => {
-              setHoveredBlocks(blocks => blocks.filter(b => b[2] !== block[2]));
+              setHoveredBlocks((blocks) =>
+                blocks.filter((b) => b[2] !== block[2]),
+              );
             }}
           />
         ))}

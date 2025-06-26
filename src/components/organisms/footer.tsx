@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import {BiGitBranch, BiRefresh, BiXCircle, BiLineChart} from 'react-icons/bi';
-import {IoWarningOutline, IoLogoGithub} from 'react-icons/io5';
-import {AiOutlineClockCircle} from 'react-icons/ai';
+
+import { BiGitBranch, BiLineChart, BiRefresh, BiXCircle } from 'react-icons/bi';
+import { IoLogoGithub, IoWarningOutline } from 'react-icons/io5';
 
 import {
   Tooltip,
@@ -10,20 +10,21 @@ import {
   TooltipTrigger,
 } from '@/components/atoms/tooltip';
 
-export const Footer = async () => {
+export const Footer = () => {
   return (
     <TooltipProvider>
       <footer className="border-t text-off-white text-xs flex items-center justify-between select-none bg-layout relative z-30">
         <div className="flex items-center border-r divide-x">
           <Link
             target="_blank"
-            href="https://github.com/leeminkan/portfolio-site"
+            href="https://github.com/huydq189/portfolio-stephen"
             className="flex items-center gap-x-2 px-2 py-1 hover:text-foreground text-muted-foreground transition-colors"
           >
             <BiGitBranch className="text-lg" />
             <p>main</p>
           </Link>
           <button
+            type="button"
             aria-label="refetch"
             className="items-center gap-x-2 px-2 py-1 md:flex hidden group hover:text-foreground text-muted-foreground transition-colors"
             data-umami-event="footer-refresh-btn"
@@ -34,7 +35,7 @@ export const Footer = async () => {
           <Tooltip delayDuration={0}>
             <TooltipTrigger asChild>
               <Link
-                href="https://umami.leeminkan.dev/share/uzhYvcwXpP4PITmG/leeminkan.dev"
+                href={''}
                 target="_blank"
                 aria-label="statistics"
                 className="items-center gap-x-2 px-2 py-1 md:flex hidden hover:text-foreground text-muted-foreground transition-colors"
@@ -59,41 +60,22 @@ export const Footer = async () => {
           </Tooltip>
 
           <Link
-            href="mailto:nguyenhoangphuc.kan@gmail.com"
+            href="mailto:doquochuy189@gmail.com"
             target="_blank"
             className="items-center gap-x-1.5 px-2 py-1 md:flex hidden text-muted-foreground hover:text-foreground transition-colors"
           >
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span>Available for a work!</span>
+            <span>Available for work!</span>
           </Link>
         </div>
 
         <div className="flex items-center divide-x divide border-l">
-          <div className="items-center gap-x-2 px-2 py-1 lg:flex hidden text-muted-foreground">
-            <p>Special thanks to:</p>
-
-            <Link
-              href="https://www.behance.net/darelova"
-              target="_blank"
-              className="hover:text-foreground transition-colors"
-            >
-              Yanka Darelova
-            </Link>
-            <p>&</p>
-            <Link
-              href="https://www.linkedin.com/in/wiscaksono"
-              target="_blank"
-              className="hover:text-foreground transition-colors"
-            >
-              Wiscaksono
-            </Link>
-          </div>
           <Link
             target="_blank"
-            href="https://github.com/leeminkan"
+            href="https://github.com/huydq189"
             className="flex items-center gap-x-1 px-2 py-1 hover:text-foreground text-muted-foreground transition-colors"
           >
-            <p>Kan</p>
+            <p>Stephen</p>
             <IoLogoGithub className="text-lg" />
           </Link>
         </div>

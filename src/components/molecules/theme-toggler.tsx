@@ -1,10 +1,9 @@
 'use client';
 
-import * as React from 'react';
-import {Moon, Sun} from 'lucide-react';
-import {useTheme} from 'next-themes';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
-import {Button} from '@/components/atoms/button';
+import { Button } from '@/components/atoms/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +12,7 @@ import {
 } from '@/components/atoms/dropdown-menu';
 
 export function ThemeToggle() {
-  const {setTheme} = useTheme();
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -33,9 +32,7 @@ export function ThemeToggle() {
         <DropdownMenuItem
           data-umami-event="theme-toggle-light"
           onClick={() => {
-            confirm(
-              'Get ready for a dazzling experience! 🌟 \nAre you absolutely sure you want to switch to the light mode and unleash the flashbang? 💡💥',
-            ) && setTheme('light');
+            setTheme('light');
           }}
         >
           Light

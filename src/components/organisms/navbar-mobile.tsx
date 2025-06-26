@@ -1,15 +1,14 @@
 'use client';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import {Menu} from 'lucide-react';
-import {Fragment, createContext, useContext, useState} from 'react';
-
-import {FadeIn, AnimatePresence} from '@/components/atoms/fade-in';
+import { createContext, Fragment, useContext, useState } from 'react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/atoms/accordion';
+import { AnimatePresence, FadeIn } from '@/components/atoms/fade-in';
 
 interface NavbarMobileContextProps {
   isOpen: boolean;
@@ -20,15 +19,15 @@ const NavbarContext = createContext<NavbarMobileContextProps | undefined>(
   undefined,
 );
 
-export const NavbarProvider = ({children}: {children: React.ReactNode}) => {
+export const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setIsOpen(prevIsOpen => !prevIsOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
   return (
-    <NavbarContext.Provider value={{isOpen, toggleNavbar}}>
+    <NavbarContext.Provider value={{ isOpen, toggleNavbar }}>
       {children}
     </NavbarContext.Provider>
   );
@@ -45,10 +44,11 @@ export const useNavbarMobile = (): NavbarMobileContextProps => {
 };
 
 export const NavbarMobileBtn: React.FC = () => {
-  const {toggleNavbar} = useNavbarMobile();
+  const { toggleNavbar } = useNavbarMobile();
 
   return (
     <button
+      type="button"
       className="text-muted-foreground ml-auto px-2.5 block md:hidden"
       onClick={toggleNavbar}
       data-umami-event="navbar-mobile-trigger"
@@ -59,7 +59,7 @@ export const NavbarMobileBtn: React.FC = () => {
 };
 
 export const NavbarMobile = () => {
-  const {isOpen, toggleNavbar} = useNavbarMobile();
+  const { isOpen, toggleNavbar } = useNavbarMobile();
 
   return (
     <AnimatePresence>
@@ -68,8 +68,8 @@ export const NavbarMobile = () => {
           fromTopToBottom
           className="absolute top-[57px] left-0 bg-background h-[calc(100%-57px-27px)] w-full z-50 p-5 divide-y overflow-y-auto"
         >
-          {navMenu.map((menu, i) => (
-            <Fragment key={i}>
+          {navMenu.map((menu) => (
+            <Fragment key={menu.name}>
               {menu.child ? (
                 <Accordion type="single" collapsible>
                   <AccordionItem value={menu.name}>
@@ -80,10 +80,10 @@ export const NavbarMobile = () => {
                       {menu.name}
                     </AccordionTrigger>
                     <AccordionContent className="pl-5 divide-y">
-                      {menu.child.map((child, j) => (
+                      {menu.child.map((child) => (
                         <Link
                           href={child.path}
-                          key={j}
+                          key={child.name}
                           className="block text-xl py-2 first:pt-0 last:pb-0 border-b last:border-0 text-muted-foreground"
                           onClick={toggleNavbar}
                         >
@@ -152,20 +152,12 @@ export const navMenu = [
         path: '/projects?tag=ExpressJS',
       },
       {
-        name: 'Laravel',
-        path: '/projects?tag=Laravel',
-      },
-      {
         name: 'React',
         path: '/projects?tag=React',
       },
       {
         name: 'NextJS',
         path: '/projects?tag=NextJS',
-      },
-      {
-        name: 'Mysql',
-        path: '/projects?tag=Mysql',
       },
       {
         name: 'MongoDB',
@@ -178,32 +170,20 @@ export const navMenu = [
     ],
   },
   {
-    name: '_guest-book',
-    path: '/guest-book',
-  },
-  {
-    name: '_articles',
-    path: '/articles',
-  },
-  {
     name: '_contact',
     child: [
       {
         name: 'Email',
-        path: 'mailto:nguyenhoangphuc.kan@gmail.com',
+        path: 'mailto:doquochuy189@gmail.com',
       },
       {
         name: 'LinkedIn',
-        path: 'https://www.linkedin.com/in/leeminkan/',
-      },
-      {
-        name: 'Instagram',
-        path: 'https://www.instagram.com/hi_im_kan_/',
+        path: 'https://www.linkedin.com/in/huydq189/',
       },
     ],
   },
   {
     name: '_my-cv',
-    path: '/cv.pdf',
+    path: '/cv',
   },
 ];
