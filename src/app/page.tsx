@@ -1,6 +1,4 @@
 import { FadeIn } from '@/components/atoms/fade-in';
-import { GridPattern } from '@/components/atoms/grid-pattern';
-import { MountainSVG } from '@/components/atoms/moutain-svg';
 import { AnimatedName } from '@/components/molecules/animated-name';
 
 export default function Home() {

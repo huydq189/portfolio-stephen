@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { NavLink } from '@/components/atoms/nav-link';
 import { ThemeToggle } from '@/components/molecules/theme-toggler';
-import { NavbarMobileBtn } from './navbar-mobile';
 
 export const Navbar = () => {
   return (
@@ -21,7 +20,7 @@ export const Navbar = () => {
           ))}
         </ul>
         <ThemeToggle />
-        <NavbarMobileBtn />
+        {/* <NavbarMobileBtn /> */}
       </div>
     </nav>
   );

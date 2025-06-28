@@ -1,8 +1,7 @@
-import { Maximize2, Minus, X } from 'lucide-react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { WindowControls } from '../molecules/window-controls';
 
-interface BrowserControlBarProps {
+interface TopBarProps {
   tabName?: string;
   favicon?: string;
   className?: string;
@@ -10,13 +9,13 @@ interface BrowserControlBarProps {
   onNewTab?: () => void;
 }
 
-export function BrowserControlBar({
+export function TopBar({
   tabName = '{tab_name}',
   // favicon = 'https://cdn.builder.io/api/v1/image/assets/TEMP/b821b8a57cd10473f11d01e51d37734d70b01916?width=32',
   className,
   onTabClose,
   onNewTab,
-}: BrowserControlBarProps) {
+}: TopBarProps) {
   return (
     <div
       className={cn(
@@ -25,17 +24,7 @@ export function BrowserControlBar({
       )}
     >
       {/* Browser Controls */}
-      <div className="absolute left-3 top-4 flex items-center gap-2">
-        <div className="w-3.5 h-3.5 rounded-full bg-[#FF6058] border border-[#E14942] flex items-center justify-center text-white hover:scale-105 transition">
-          <X className="w-2.5 h-2.5 text-[#a10805]" />
-        </div>
-        <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border border-[#E1A100] flex items-center justify-center text-white hover:scale-105 transition">
-          <Minus className="w-2.5 h-2.5 text-[#b2710a]" />
-        </div>
-        <div className="w-3.5 h-3.5 rounded-full bg-[#28C840] border border-[#1AAB29] flex items-center justify-center text-white hover:scale-105 transition">
-          <Maximize2 className="w-[8px] h-[8px] text-[#016a04]" />
-        </div>
-      </div>
+      <WindowControls />
 
       {/* Tab and Plus Button Container */}
       <div className="absolute left-[72px] top-2 flex items-center h-[34px] px-2">
@@ -137,5 +126,3 @@ export function BrowserControlBar({
     </div>
   );
 }
-
-export default BrowserControlBar;

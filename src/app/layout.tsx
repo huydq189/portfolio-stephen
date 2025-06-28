@@ -1,18 +1,14 @@
-import './globals.css';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
 import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
-import BrowserControlBar from '@/components/organisms/control-bar';
+import BrowserControlBar from '@/components/organisms/browser-bar';
 import { Footer } from '@/components/organisms/footer';
 import { Navbar } from '@/components/organisms/navbar';
-import {
-  NavbarMobile,
-  NavbarProvider,
-} from '@/components/organisms/navbar-mobile';
 import { ENV } from '@/lib/constants';
+import './globals.css';
+import { TopBar } from '@/components/organisms/top-bar';
 
 export const metadata: Metadata = {
   metadataBase: new URL(ENV.NEXT_PUBLIC_WEBSITE_URL),
@@ -64,11 +60,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main>
-            <NavbarProvider>
-              <BrowserControlBar />
-              <Navbar />
-              <NavbarMobile />
-            </NavbarProvider>
+            {/* <NavbarProvider> */}
+            <TopBar />
+            <Navbar />
+            {/* <NavbarMobile /> */}
+            {/* </NavbarProvider> */}
             {children}
             <Footer />
           </main>
