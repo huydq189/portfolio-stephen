@@ -1,5 +1,6 @@
 import { FadeIn } from '@/components/atoms/fade-in';
 import { GridPattern } from '@/components/atoms/grid-pattern';
+import { MountainSVG } from '@/components/atoms/moutain-svg';
 import { AnimatedName } from '@/components/molecules/animated-name';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
         <div className="md:space-y-10 space-y-8 relative z-10">
           <header>
             <p className="text-muted-foreground text-lg font-extralight">
-              Hi all. I am
+              Hello world. I am
             </p>
             <AnimatedName />
             <h2 className="text-muted-foreground md:text-2xl sm:text-xl text-base">
@@ -39,11 +40,6 @@ export default function Home() {
           </div>
         </div>
       </FadeIn>
-      <GridPattern
-        className="absolute inset-x-0 -top-14 -z-10 h-full w-full dark:fill-secondary/20 fill-neutral-100 dark:stroke-secondary/30 stroke-neutral-700/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
-        yOffset={-96}
-        interactive
-      />
     </section>
   );
 }
