@@ -5,13 +5,13 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
 import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
+import BrowserControlBar from '@/components/organisms/control-bar';
 import { Footer } from '@/components/organisms/footer';
 import { Navbar } from '@/components/organisms/navbar';
 import {
   NavbarMobile,
   NavbarProvider,
 } from '@/components/organisms/navbar-mobile';
-
 import { ENV } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -65,6 +65,7 @@ export default function RootLayout({
         >
           <main>
             <NavbarProvider>
+              <BrowserControlBar />
               <Navbar />
               <NavbarMobile />
             </NavbarProvider>
