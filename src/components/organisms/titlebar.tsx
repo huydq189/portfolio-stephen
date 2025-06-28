@@ -2,20 +2,12 @@ import { cn } from '@/lib/utils';
 import { WindowControls } from '../molecules/window-controls';
 
 interface TopBarProps {
-  tabName?: string;
-  favicon?: string;
   className?: string;
   onTabClose?: () => void;
   onNewTab?: () => void;
 }
 
-export function TopBar({
-  tabName = '{tab_name}',
-  // favicon = 'https://cdn.builder.io/api/v1/image/assets/TEMP/b821b8a57cd10473f11d01e51d37734d70b01916?width=32',
-  className,
-  onTabClose,
-  onNewTab,
-}: TopBarProps) {
+export function TitleBar({ className, onTabClose, onNewTab }: TopBarProps) {
   return (
     <div
       className={cn(
@@ -52,7 +44,7 @@ export function TopBar({
           <div className="flex items-center gap-2 px-2 py-2 bg-white rounded-t-lg relative min-w-0">
             <div className="w-4 h-4 flex-shrink-0" />
             <span className="text-[#494C4F] text-xs font-normal leading-normal tracking-[0.2px] font-['Roboto','-apple-system','Roboto','Helvetica','sans-serif'] truncate max-w-[100px] sm:max-w-[150px]">
-              {tabName}
+              {/* {tabName} */}
             </span>
             <button
               type="button"

@@ -8,7 +8,7 @@ import { Footer } from '@/components/organisms/footer';
 import { Navbar } from '@/components/organisms/navbar';
 import { ENV } from '@/lib/constants';
 import './globals.css';
-import { TopBar } from '@/components/organisms/top-bar';
+import { TitleBar } from '@/components/organisms/titlebar';
 
 export const metadata: Metadata = {
   metadataBase: new URL(ENV.NEXT_PUBLIC_WEBSITE_URL),
@@ -61,7 +61,7 @@ export default function RootLayout({
         >
           <main>
             {/* <NavbarProvider> */}
-            <TopBar />
+            <TitleBar />
             <Navbar />
             {/* <NavbarMobile /> */}
             {/* </NavbarProvider> */}
