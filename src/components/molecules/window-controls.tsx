@@ -27,7 +27,7 @@ const controls = [
 ];
 
 export const WindowControls: React.FC = () => (
-  <div className="absolute left-3 top-4 flex items-center gap-2 group">
+  <div className="flex items-center gap-2 px-3 h-full group">
     {controls.map(({ label, bg, border, icon }) => (
       <Button
         key={label}
