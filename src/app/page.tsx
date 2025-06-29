@@ -21,7 +21,7 @@ export default function Home() {
 
           <div className="space-y-2 sm:text-sm text-xs">
             <p className="text-muted-foreground">
-              {'// you can also see it on my Github page'}
+              {'// you can download my CV here'}
             </p>
             <p className="text-muted-foreground">
               <span className="text-purple">const</span>{' '}

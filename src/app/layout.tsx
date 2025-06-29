@@ -1,14 +1,19 @@
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
+import { Manrope } from 'next/font/google';
 import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
 import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
-import BrowserControlBar from '@/components/organisms/browser-bar';
 import { Footer } from '@/components/organisms/footer';
 import { Navbar } from '@/components/organisms/navbar';
-import { ENV } from '@/lib/constants';
-import './globals.css';
 import { TitleBar } from '@/components/organisms/titlebar';
+import { ENV } from '@/lib/constants';
+
+import './globals.css';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope', // Optional: for use with Tailwind CSS
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(ENV.NEXT_PUBLIC_WEBSITE_URL),
@@ -52,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} font-mono`}>
+      <body className={manrope.className}>
         <ThemeWrapper
           attribute="class"
           defaultTheme="system"
@@ -62,7 +67,7 @@ export default function RootLayout({
           <main>
             {/* <NavbarProvider> */}
             <TitleBar />
-            <Navbar />
+            {/* <Navbar /> */}
             {/* <NavbarMobile /> */}
             {/* </NavbarProvider> */}
             {children}
