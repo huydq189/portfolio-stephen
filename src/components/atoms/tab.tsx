@@ -1,69 +1,76 @@
 import { X } from 'lucide-react';
+import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from './button';
 import classes from './tab.module.scss';
 
-export interface BrowserTabProps extends React.HTMLAttributes<HTMLDivElement> {
-  logo: React.FC;
+export interface BrowserTabProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  logo: React.ReactNode;
+  href: string;
   title?: string;
   icon?: React.ReactNode;
   onClose?: () => void;
   closable?: boolean;
-  active?: boolean;
 }
 
-const BrowserTab = React.forwardRef<HTMLDivElement, BrowserTabProps>(
+const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
   (
     {
       logo,
+      href,
       className,
       title = 'New Tab',
       icon,
       onClose,
       closable = true,
-      active = false,
       ...props
     },
     ref,
   ) => {
+    const segment = useSelectedLayoutSegment();
+    console.log('segment', segment);
+    console.log('href', href);
+    const isActive =
+      segment === href.slice(1) || (segment === null && href === '/');
+
     return (
-      <div
+      <Link
         ref={ref}
+        href={href}
         className={cn(
           classes.tab,
-          active ? classes['tab--active'] : classes['tab--inactive'],
+          isActive ? classes['tab--active'] : classes['tab--inactive'],
           className,
         )}
         {...props}
       >
-        <div className="flex items-center px-5 py-2">
-          <div
-            className={cn(
-              'flex items-center gap-2.5 flex-1 transition-colors duration-200 p-0.5',
-              !active && classes['tab--inactive-content'],
-            )}
-          >
-            {/* Logo */}
-            <div className="flex-shrink-0">{React.createElement(logo)}</div>
-
-            {/* Title */}
+        <div
+          className={cn(
+            'relative flex items-center mx-1.5 py-1 px-1',
+            !isActive && 'hover:bg-[#C7CCD2] rounded-sm',
+          )}
+        >
+          <div className={cn('flex items-center gap-2.5 flex-1 p-0.5')}>
+            <div className="flex-shrink-0">{logo}</div>
             <div className="flex-1">
-              <div className="text-xs font-medium truncate">{title}</div>
+              <div className="text-xs font-medium truncate cursor-default">
+                {title}
+              </div>
             </div>
-
-            {/* Close Button */}
             <Button
               className="size-4"
               variant="ghost"
               size="icon"
               aria-label="Close tab"
             >
-              <X size={12} className="text-[#5F6368]" />
+              <X className="text-[#5F6368] scale-90" />
             </Button>
           </div>
         </div>
-      </div>
+      </Link>
     );
   },
 );

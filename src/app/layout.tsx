@@ -1,11 +1,10 @@
-import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
-import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
-import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
-import { Footer } from '@/components/organisms/footer';
-import { Navbar } from '@/components/organisms/navbar';
-import { TitleBar } from '@/components/organisms/titlebar';
-import { ENV } from '@/lib/constants';
+import {ResponsiveIndicator} from '@/components/atoms/responsive-indicator';
+import {ThemeWrapper} from '@/components/atoms/theme-wrapper';
+import {Footer} from '@/components/organisms/footer';
+import {TitleBar} from '@/components/organisms/titlebar';
+import {ENV} from '@/lib/constants';
+import type {Metadata} from 'next';
+import {Manrope} from 'next/font/google';
 
 import './globals.css';
 

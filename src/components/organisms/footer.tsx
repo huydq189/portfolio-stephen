@@ -47,7 +47,7 @@ export const Footer = () => {
                 className="items-center gap-x-2 px-2 py-1 md:flex hidden hover:text-foreground text-muted-foreground transition-colors"
                 data-umami-event="footer-statistics-btn"
               >
-                <ChartArea size={12} />
+                <ChartArea size={16} />
               </Link>
             </TooltipTrigger>
             <TooltipContent>Statistics</TooltipContent>
