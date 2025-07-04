@@ -1,23 +1,22 @@
 import { notFound } from 'next/navigation';
-
-import { MDXComponent } from '@/components/molecules/mdx-component';
+import { allAbouts } from '@/constants';
 import { ENV } from '@/lib/constants';
 import { generateSEO } from '@/lib/generateSEO';
 
 type ParamsProps = {
-  summary: string;
   title: string;
-  body: {
-    code: string;
-  };
+  summary: string;
+};
+
+type About = {
+  title: string;
+  summary: string;
 };
 
 async function getContent(params: ParamsProps) {
-  const post = ([] as ParamsProps[]).find(
-    (post) => post.title === params.title,
-  );
-  if (!post) null;
-  return post as ParamsProps;
+  const post = allAbouts.find((post: About) => post.title === params.title);
+  if (!post) return null;
+  return post;
 }
 
 export async function generateMetadata({ params }: { params: ParamsProps }) {
@@ -34,7 +33,7 @@ export async function generateMetadata({ params }: { params: ParamsProps }) {
 }
 
 export async function generateStaticParams() {
-  return ([] as ParamsProps[]).map((post) => ({
+  return allAbouts.map((post) => ({
     title: post?.title.toLowerCase(),
   }));
 }
@@ -42,6 +41,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: ParamsProps }) {
   const content = await getContent(params);
   if (!content) return notFound();
+  const { default: Component } = await import(`@/content/${content}.mdx`);
 
-  return <MDXComponent code={content.body.code} />;
+  return <Component />;
 }

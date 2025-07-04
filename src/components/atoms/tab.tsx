@@ -31,8 +31,6 @@ const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
     ref,
   ) => {
     const segment = useSelectedLayoutSegment();
-    console.log('segment', segment);
-    console.log('href', href);
     const isActive =
       segment === href.slice(1) || (segment === null && href === '/');
 

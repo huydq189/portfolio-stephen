@@ -9,6 +9,7 @@ import {
 } from '@/components/atoms/accordion';
 import { AsideLink } from '@/components/atoms/aside-link';
 import { FadeIn, FadeInStagger } from '@/components/atoms/fade-in';
+import { allAbouts } from '@/constants';
 
 export default function AboutLayout({
   children,
@@ -28,7 +29,7 @@ export default function AboutLayout({
             </AccordionTrigger>
             <AccordionContent className="mt-5 space-y-1">
               <FadeInStagger faster>
-                {[].map(({ title }) => (
+                {allAbouts.map(({ title }) => (
                   <FadeIn key={title}>
                     <Suspense fallback={<>Loading...</>}>
                       <AsideLink href={title} key={title} title={title}>
