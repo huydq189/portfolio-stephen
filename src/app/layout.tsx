@@ -1,12 +1,13 @@
-import {ResponsiveIndicator} from '@/components/atoms/responsive-indicator';
-import {ThemeWrapper} from '@/components/atoms/theme-wrapper';
-import {Footer} from '@/components/organisms/footer';
-import {TitleBar} from '@/components/organisms/titlebar';
-import {ENV} from '@/lib/constants';
-import type {Metadata} from 'next';
-import {Manrope} from 'next/font/google';
+import type { Metadata } from 'next';
+import { Manrope } from 'next/font/google';
+import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
+import { ThemeWrapper } from '@/components/atoms/theme-wrapper';
+import { Footer } from '@/components/organisms/footer';
+import { TitleBar } from '@/components/organisms/titlebar';
+import { ENV } from '@/lib/constants';
 
 import './globals.css';
+import { Navbar } from '@/components/organisms/navbar';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -66,7 +67,7 @@ export default function RootLayout({
           <main>
             {/* <NavbarProvider> */}
             <TitleBar />
-            {/* <Navbar /> */}
+            <Navbar />
             {/* <NavbarMobile /> */}
             {/* </NavbarProvider> */}
             {children}

@@ -1,12 +1,11 @@
 'use client';
-import { useState } from 'react';
+import { ChatLogo } from '@/assets/svg/chat-logo';
+import { HomeLogo } from '@/assets/svg/home-logo';
+import { InfoLogo } from '@/assets/svg/info-logo';
+import { ProjectLogo } from '@/assets/svg/project-logo';
+import { BrowserTab } from '@/components/atoms/tab';
+import { WindowControls } from '@/components/molecules/window-controls';
 import { cn } from '@/lib/utils';
-import { BrowserTab } from '../atoms/tab';
-import { WindowControls } from '../molecules/window-controls';
-import { ChatLogo } from '../svg/chat-logo';
-import { HomeLogo } from '../svg/home-logo';
-import { InfoLogo } from '../svg/info-logo';
-import { ProjectLogo } from '../svg/project-logo';
 
 interface TopBarProps {
   className?: string;

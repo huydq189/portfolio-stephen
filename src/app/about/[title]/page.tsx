@@ -1,47 +1,40 @@
 import { notFound } from 'next/navigation';
-import { allAbouts } from '@/constants';
+
+import { abouts } from '#velite';
+import { MDXComponent } from '@/components/molecules/mdx-component';
 import { ENV } from '@/lib/constants';
 import { generateSEO } from '@/lib/generateSEO';
 
-type ParamsProps = {
-  title: string;
-  summary: string;
-};
-
-type About = {
-  title: string;
-  summary: string;
-};
-
-async function getContent(params: ParamsProps) {
-  const post = allAbouts.find((post: About) => post.title === params.title);
-  if (!post) return null;
-  return post;
+interface AboutsProps {
+  params: Promise<{ title: string }>;
 }
 
-export async function generateMetadata({ params }: { params: ParamsProps }) {
-  const about = await getContent(params);
-  if (!about) return {};
+function getContent(title: string) {
+  return abouts.find((abouts) => abouts.title === title);
+}
 
-  const title = about.title;
-  const description = about.summary;
-  const image = `${ENV.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${title}`;
+export async function generateMetadata({ params }: AboutsProps) {
+  const { title } = await params;
+  const abouts = getContent(title);
+  if (!abouts) return {};
+
+  const image = `${ENV.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${abouts.title}`;
 
   return {
-    ...generateSEO(title, description, image, `/projects/${title}`),
+    ...generateSEO(abouts.title, abouts.title, image, `about/${abouts.title}`),
   };
 }
 
-export async function generateStaticParams() {
-  return allAbouts.map((post) => ({
-    title: post?.title.toLowerCase(),
-  }));
+export function generateStaticParams() {
+  return abouts.map((abouts) => ({ title: abouts.title }));
 }
 
-export default async function Page({ params }: { params: ParamsProps }) {
-  const content = await getContent(params);
-  if (!content) return notFound();
-  const { default: Component } = await import(`@/content/${content}.mdx`);
+export default async function Page({ params }: AboutsProps) {
+  const { title } = await params;
+  const abouts = getContent(title);
+  if (!abouts) notFound();
 
-  return <Component />;
+  if (abouts == null) notFound();
+
+  return <MDXComponent code={abouts.code} />;
 }
