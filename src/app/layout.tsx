@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
-import { ThemeWrapper } from '@/components/atoms';
-import { ResponsiveIndicator } from '@/components/atoms/responsive-indicator';
-import { Footer } from '@/components/organisms/footer';
-import { TitleBar } from '@/components/organisms/titlebar';
+import { ResponsiveIndicator, ThemeWrapper } from '@/components/atoms';
+import { Footer, TitleBar } from '@/components/organisms';
 import { ENV } from '@/lib/constants';
 import './globals.css';
 
@@ -63,11 +61,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main>
-            {/* <NavbarProvider> */}
             <TitleBar />
-            {/* <Navbar /> */}
-            {/* <NavbarMobile /> */}
-            {/* </NavbarProvider> */}
             {children}
             <Footer />
           </main>

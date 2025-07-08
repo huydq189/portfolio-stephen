@@ -1,1 +1,2 @@
-export * from './titlebar';
+export * from './footer';
+export * from './title-bar';
