@@ -1,0 +1,68 @@
+.tab {
+  cursor: default;
+  position: relative;
+  width: 256px;
+  height: 34px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 16px;
+    height: 8px;
+    display: block;
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: -16px;
+    border-radius: 0 0 8px 0;
+  }
+
+  &::after {
+    right: -16px;
+    border-radius: 0 0 0 8px;
+  }
+}
+
+.tab--active {
+  background-color: #ffffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 10;
+
+  &::before {
+    box-shadow: 8px 0 0 0 #ffffff;
+  }
+
+  &::after {
+    box-shadow: -8px 0 0 0 #ffffff;
+  }
+}
+
+.tab--inactive {
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 6px;
+    bottom: 12px;
+    width: 1.5px;
+    height: auto;
+    background-color: #5F6368;
+    opacity: 0.4;
+    pointer-events: none;
+    border-radius: 10px;
+    z-index: 1;
+  }
+
+  &:has(+ .tab--active)::after {
+    display: none;
+  }
+
+  &:hover::after {
+    display: none;
+  }
+}
