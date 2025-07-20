@@ -41,28 +41,3 @@
     box-shadow: -8px 0 0 0 #ffffff;
   }
 }
-
-.tab--inactive {
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 6px;
-    bottom: 12px;
-    width: 1.5px;
-    height: auto;
-    background-color: #5F6368;
-    opacity: 0.4;
-    pointer-events: none;
-    border-radius: 10px;
-    z-index: 1;
-  }
-
-  &:has(+ .tab--active)::after {
-    display: none;
-  }
-
-  &:hover::after {
-    display: none;
-  }
-}

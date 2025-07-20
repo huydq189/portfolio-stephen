@@ -16,6 +16,8 @@ interface BrowserTabProps
   icon?: React.ReactNode;
   onClose?: () => void;
   closable?: boolean;
+  showDivider?: boolean;
+  isActive?: boolean;
 }
 
 const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
@@ -28,14 +30,12 @@ const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
       icon,
       onClose,
       closable = true,
+      showDivider = false,
+      isActive = false,
       ...props
     },
     ref,
   ) => {
-    const segment = useSelectedLayoutSegment();
-    const isActive =
-      segment === href.slice(1) || (segment === null && href === '/');
-
     return (
       <Link
         ref={ref}
@@ -51,7 +51,7 @@ const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
           className={cn(
             'relative flex items-center mx-1.5 py-1 px-1',
             !isActive &&
-              'hover:bg-[#C7CCD2] rounded-sm transition duration-100 ease-linear',
+              'hover:bg-[#C7CCD2] rounded-lg transition duration-200 ease-linear',
           )}
         >
           <div className={cn('flex items-center gap-2.5 flex-1 p-0.5')}>
@@ -67,10 +67,17 @@ const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
               size="icon"
               aria-label="Close tab"
             >
-              <X className="text-[#5F6368] scale-90" />
+              <X className="text-[#5F6368] scale-80" />
             </Button>
           </div>
         </div>
+        <span
+          className={cn(
+            'absolute right-0 top-[6px] bottom-[12px] w-[1.8px] bg-[#5F6368] rounded-[10px] z-[1] pointer-events-none transition-opacity duration-200',
+            !isActive && showDivider !== false ? 'opacity-30' : 'opacity-0',
+          )}
+          aria-hidden="true"
+        />
       </Link>
     );
   },

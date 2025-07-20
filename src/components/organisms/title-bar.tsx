@@ -1,4 +1,6 @@
 'use client';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { useState } from 'react';
 import { ChatLogo, HomeLogo, InfoLogo, ProjectLogo } from '@/assets/svg';
 import { BrowserTab } from '@/components/atoms';
 import { SearchBar, WindowControls } from '@/components/molecules';
@@ -44,8 +46,11 @@ const tabs = [
 ];
 
 export function TitleBar({ className }: TopBarProps) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const segment = useSelectedLayoutSegment();
+
   return (
-    <div>
+    <>
       <div
         className={cn(
           'flex w-full h-[42px] bg-[#DEE1E6] rounded-t-lg items-end',
@@ -53,11 +58,36 @@ export function TitleBar({ className }: TopBarProps) {
         )}
       >
         <WindowControls />
-        {tabs.map(({ href, id, title, logo }) => (
-          <BrowserTab href={href} key={id} title={title} logo={logo} />
-        ))}
+        {tabs.map(({ href, id, title, logo }, index) => {
+          const currentSegment = segment ?? '';
+          const thisHref = href;
+          const nextHref = tabs[index + 1]?.href;
+          const isNextActive =
+            currentSegment === nextHref?.slice(1) ||
+            (nextHref === '/' && currentSegment === null);
+          const isActive =
+            currentSegment === thisHref.slice(1) ||
+            (thisHref === '/' && currentSegment === null);
+
+          return (
+            <BrowserTab
+              href={href}
+              key={id}
+              title={title}
+              logo={logo}
+              isActive={isActive}
+              showDivider={
+                hoveredIndex !== index &&
+                hoveredIndex !== index + 1 &&
+                !isNextActive
+              }
+              onPointerEnter={() => setHoveredIndex(index)}
+              onPointerLeave={() => setHoveredIndex(null)}
+            />
+          );
+        })}
       </div>
       <SearchBar />
-    </div>
+    </>
   );
 }

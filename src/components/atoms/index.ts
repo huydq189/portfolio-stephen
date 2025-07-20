@@ -3,6 +3,7 @@ export * from './aside-link';
 export * from './avatar';
 export * from './button';
 export * from './enter-animation';
+export * from './grid-pattern';
 export * from './motion';
 export * from './page-loading';
 export * from './responsive-indicator';

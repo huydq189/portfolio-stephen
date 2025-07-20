@@ -17,21 +17,21 @@ export function SearchBar() {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-gray-100 rounded-full transition-colors"
+              className="hover:bg-gray-100 rounded-full transition-colors active:bg-gray-200"
             >
               <ArrowLeft />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-gray-100 rounded-full transition-colors"
+              className="hover:bg-gray-100 rounded-full transition-colors active:bg-gray-200"
             >
               <ArrowRight />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-gray-100 rounded-full transition-colors"
+              className="hover:bg-gray-100 rounded-full transition-colors active:bg-gray-200"
             >
               <RotateCw />
             </Button>
@@ -51,7 +51,7 @@ export function SearchBar() {
             <Button
               variant="ghost"
               size="icon"
-              className="h-6 w-6 hover:bg-gray-200 rounded-full transition-colors mx-3"
+              className="h-6 w-6 hover:bg-gray-200 rounded-full transition-colors mx-3 active:bg-gray-300"
             >
               <StarIcon className="h-3 w-3 text-gray-600" />
             </Button>
@@ -59,8 +59,8 @@ export function SearchBar() {
         </div>
         <div className="flex items-center gap-2 mx-3">
           <Avatar className="size-6">
-            <AvatarImage src="https://file.notion.so/f/f/cc4e7ea7-67eb-4cc4-bad8-8935074fcf83/8a84121f-08f5-41b3-a573-60e5f6ff7061/image.png?table=block&id=20093664-4d82-8069-8f00-dbc6aa7354e2&spaceId=cc4e7ea7-67eb-4cc4-bad8-8935074fcf83&expirationTimestamp=1752019200000&signature=hxE8IqB0cWHpQUA9OKdj2N3is5S3c1LYo8rwErYOoLA&downloadName=image.png" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src="https://media.licdn.com/dms/image/v2/D5603AQF7dyGnGmLMsQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708065199252?e=1757548800&v=beta&t=tuuM8cu7FlFEOfpZ68sDZKLow9GBJYSTAPTGdBb7NBQ" />
+            <AvatarFallback>HD</AvatarFallback>
           </Avatar>
           <div
             className="flex
@@ -69,7 +69,7 @@ export function SearchBar() {
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-gray-100 rounded-full transition-colors"
+              className="hover:bg-gray-100 rounded-full transition-colors active:bg-gray-200"
             >
               <EllipsisVertical />
             </Button>

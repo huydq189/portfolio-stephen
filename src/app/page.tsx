@@ -29,11 +29,12 @@ export default function Home() {
               </code>
             </pre>
           </div>
-          <Motion whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              asChild
-              className="bg-black hover:bg-gray-800 px-6 py-3 ml-2"
-            >
+          <Motion
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block"
+          >
+            <Button asChild className="bg-black hover:bg-gray-800 px-6 py-3">
               <a
                 href={
                   'https://sumptuous-fowl-63e.notion.site/200936644d828055927fd3a038dcfaa8'
