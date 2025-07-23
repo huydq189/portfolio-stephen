@@ -1,6 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { Button, EnterAnimation, Motion } from '@/components/atoms';
-import { TypingHero } from '@/components/molecules';
+import { GlobeView, TypingHero } from '@/components/molecules';
 
 export default function Home() {
   return (
@@ -8,12 +8,11 @@ export default function Home() {
       <EnterAnimation>
         <div className="md:space-y-8 space-y-6 relative z-10">
           <TypingHero />
-
           <div className="space-y-2 sm:text-sm text-xs">
             <pre className="text-[#24292e]overflow-x-auto text-sm leading-relaxed">
               <code>
                 <span className="text-[#6a737d]">
-                  {'// you see on my Github page here'}
+                  {'// you can see my Github page here'}
                 </span>
                 {'\n'}
                 <span className="text-[#d73a49]">const</span>{' '}
