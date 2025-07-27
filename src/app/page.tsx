@@ -1,11 +1,16 @@
 import { ExternalLink } from 'lucide-react';
-import { Button, EnterAnimation, Motion } from '@/components/atoms';
-import { GlobeView, TypingHero } from '@/components/molecules';
+import {
+  Button,
+  EnterAnimation,
+  GlobeShowcase,
+  Motion,
+} from '@/components/atoms';
+import { TypingHero } from '@/components/molecules';
 
 export default function Home() {
   return (
-    <section className="flex items-center justify-center gap-20 p-5">
-      <EnterAnimation>
+    <section className="flex items-center justify-center p-5 relative">
+      <EnterAnimation className="mr-[34rem]">
         <div className="md:space-y-8 space-y-6 relative z-10">
           <TypingHero />
           <div className="space-y-2 sm:text-sm text-xs">
@@ -47,6 +52,9 @@ export default function Home() {
           </Motion>
         </div>
       </EnterAnimation>
+      <div className="ml-[37.5rem] absolute h-full w-full flex flex-row items-center justify-center dark:bg-black bg-white">
+        <GlobeShowcase />
+      </div>
     </section>
   );
 }

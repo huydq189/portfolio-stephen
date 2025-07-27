@@ -11,19 +11,19 @@ export function TypingHero() {
 
   useEffect(() => {
     const introTyped = new Typed(introRef.current, {
-      strings: ['Hello world. I am'],
-      typeSpeed: 50,
+      strings: [`Hello world. I'm`],
+      typeSpeed: 40,
       showCursor: false,
       onComplete: () => {
         new Typed(nameRef.current, {
           strings: ['STEPHEN DO'],
-          typeSpeed: 80,
+          typeSpeed: 50,
           showCursor: false,
           onComplete: () => {
             setTitleStart(true);
             new Typed(titleRef.current, {
               strings: ['Full-stack Developer'],
-              typeSpeed: 60,
+              typeSpeed: 40,
               cursorChar: '_',
             });
           },
