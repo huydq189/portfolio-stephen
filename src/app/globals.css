@@ -143,8 +143,8 @@
     color: gray;
   }
 
-  code[data-theme*=" "],
-  code[data-theme*=" "] span {
+  code[data-theme],
+  code[data-theme] span {
     color: var(--shiki-light);
     background-color: var(--shiki-light-bg);
   }
