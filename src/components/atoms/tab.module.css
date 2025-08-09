@@ -1,0 +1,31 @@
+@reference "tailwindcss";
+
+.tab {
+  @apply cursor-default relative w-64 h-[2.125rem];
+}
+
+.tab::before,
+.tab::after {
+  content: "";
+  @apply absolute bottom-0 w-4 h-2 bg-transparent pointer-events-none block;
+}
+
+.tab::before {
+  @apply -left-4 rounded-bl-lg;
+}
+
+.tab::after {
+  @apply -right-4 rounded-br-lg;
+}
+
+.tab--active {
+  @apply bg-white rounded-tl-lg rounded-tr-lg z-10
+}
+
+.tab--active::before {
+  @apply shadow-[8px_0_0_0_#ffffff];
+}
+
+.tab--active::after {
+  @apply shadow-[-8px_0_0_0_#ffffff];
+}

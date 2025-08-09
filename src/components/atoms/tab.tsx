@@ -2,11 +2,10 @@
 
 import { X } from 'lucide-react';
 import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from './button';
-import classes from './tab.module.scss';
+import classes from './tab.module.css';
 
 interface BrowserTabProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -44,6 +43,7 @@ const BrowserTab = React.forwardRef<HTMLAnchorElement, BrowserTabProps>(
           classes.tab,
           isActive ? classes['tab--active'] : classes['tab--inactive'],
           className,
+          'dark:bg-[#202124]',
         )}
         {...props}
       >

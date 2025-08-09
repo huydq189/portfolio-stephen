@@ -2,6 +2,7 @@ export * from './accordion';
 export * from './aside-link';
 export * from './avatar';
 export * from './button';
+export * from './dropdown-menu';
 export * from './enter-animation';
 export * from './motion';
 export * from './page-loading';
