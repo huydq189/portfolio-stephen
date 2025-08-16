@@ -31,18 +31,18 @@ const tabs = [
     href: '/about',
     logo: <InfoLogo width={16} height={16} />,
   },
-  {
-    id: TabName.Projects,
-    title: 'Projects',
-    href: '/projects',
-    logo: <ProjectLogo width={16} height={16} />,
-  },
-  {
-    id: TabName.Guestbook,
-    title: 'Guest book',
-    href: '/guestbook',
-    logo: <ChatLogo width={16} height={16} />,
-  },
+  // {
+  //   id: TabName.Projects,
+  //   title: 'Projects',
+  //   href: '/projects',
+  //   logo: <ProjectLogo width={16} height={16} />,
+  // },
+  // {
+  //   id: TabName.Guestbook,
+  //   title: 'Guest book',
+  //   href: '/guestbook',
+  //   logo: <ChatLogo width={16} height={16} />,
+  // },
 ];
 
 export function TitleBar({ className }: TopBarProps) {

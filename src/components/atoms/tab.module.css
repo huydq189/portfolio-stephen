@@ -4,6 +4,7 @@
   @apply cursor-default relative w-64 h-[2.125rem];
 }
 
+
 .tab::before,
 .tab::after {
   content: "";
@@ -11,11 +12,13 @@
 }
 
 .tab::before {
-  @apply -left-4 rounded-bl-lg;
+  @apply -left-4;
+  border-radius: 0 0 8px 0
 }
 
 .tab::after {
-  @apply -right-4 rounded-br-lg;
+  @apply -right-4;
+  border-radius: 0 0 0 8px;
 }
 
 .tab--active {
@@ -23,9 +26,9 @@
 }
 
 .tab--active::before {
-  @apply shadow-[8px_0_0_0_#ffffff];
+  box-shadow: 8px 0 0 0 #ffffff;
 }
 
 .tab--active::after {
-  @apply shadow-[-8px_0_0_0_#ffffff];
+  box-shadow: -8px 0 0 0 #ffffff;
 }
