@@ -79,7 +79,7 @@ export function SearchBar() {
             className="flex
            items-center"
           >
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
@@ -102,7 +102,7 @@ export function SearchBar() {
                   System
                 </DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
           </div>
         </div>
       </div>

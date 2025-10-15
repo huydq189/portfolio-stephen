@@ -56,8 +56,8 @@ export default function RootLayout({
       <body className={manrope.className}>
         <ThemeWrapper
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          // enableSystem
           disableTransitionOnChange
         >
           <main>
